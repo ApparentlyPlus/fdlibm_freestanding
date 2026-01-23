@@ -213,7 +213,7 @@ double scalbn(double x, int n)
     k = k + n;
     if (k > 0x7fe) return huge * copysign(huge, x);
     if (k > 0) {
-        dc.u = (dc.u & 0x800fffff00000000ULL) | ((uint64_t)k << 52);
+        dc.u = (dc.u & 0x800fffffffffffffULL) | ((uint64_t)k << 52);
         return dc.f;
     }
     if (k <= -54) {
@@ -221,7 +221,7 @@ double scalbn(double x, int n)
         else return tiny * copysign(tiny, x);
     }
     k += 54;
-    dc.u = (dc.u & 0x800fffff00000000ULL) | ((uint64_t)k << 52);
+    dc.u = (dc.u & 0x800fffffffffffffULL) | ((uint64_t)k << 52);
     return dc.f * 5.55111512312578270212e-17;
 }
 
