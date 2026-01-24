@@ -306,8 +306,8 @@ void robust_binary(const char* name, double (*ref)(double, double), double (*tes
     const char* col = (ratio <= 1.0) ? GRN : YEL;
     printf("%-6s | ulp=%4llu | ref=%.3fs | test=%s%.3fs" RESET " | ",
            name, (unsigned long long)max_ulp, best_ref, col, best_test);
-    if (ratio < 1.0) printf(" speed=" GRN "%.2fx\n" RESET, 1.0 / ratio);
-    else printf(" speed=" YEL "%.2fx\n" RESET, ratio);
+    if (ratio < 1.0) printf("speed=" GRN "%.2fx\n" RESET, 1.0 / ratio);
+    else printf("speed=" YEL "%.2fx\n" RESET, ratio);
     
     free(buf1); free(buf2);
 }
