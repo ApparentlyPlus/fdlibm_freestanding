@@ -848,7 +848,7 @@ static int __ieee754_rem_pio2(double x, double *y)
             j = ix >> 20;
             y[0] = r - w;
             dc.f = y[0];
-            i = j - (((int32_t)(dc.u >> 32)) & 0x7ff);
+            i = j - (((int32_t)(dc.u >> 32) >> 20) & 0x7ff);
             if (i > 16) {
                 t = r;
                 w = fn * pio2_2;
@@ -856,7 +856,7 @@ static int __ieee754_rem_pio2(double x, double *y)
                 w = fn * pio2_2t - ((t - r) - w);
                 y[0] = r - w;
                 dc.f = y[0];
-                i = j - (((int32_t)(dc.u >> 32)) & 0x7ff);
+                i = j - (((int32_t)(dc.u >> 32) >> 20) & 0x7ff);
                 if (i > 49) {
                     t = r;
                     w = fn * pio2_3;
