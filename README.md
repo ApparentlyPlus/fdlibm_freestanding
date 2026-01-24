@@ -52,6 +52,10 @@ cmake --build .
 
 # Run the tests directly
 ./run_tests
+
+# (Optional) Cleanup:
+cd ..
+rm -rf build
 ```
 
 ## Usage
