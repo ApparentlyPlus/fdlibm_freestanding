@@ -1,6 +1,6 @@
 # Freestanding, Portable C Math Library
 
-A self-contained, strict IEEE-754 implementation of the standard C math library (fdlibm-based). 
+A self-contained, strict IEEE-754 implementation of the standard C math library, based on [fdlibm](https://www.netlib.org/fdlibm/). 
 
 This library is designed for **freestanding environments** (Operating System kernels, embedded firmware, bootloaders) where the standard C library (`libc` / `libm`) is unavailable.
 
@@ -13,6 +13,12 @@ This library is designed for **freestanding environments** (Operating System ker
 * **Performance:**
     * This is a **software implementation**. It is slightly slower (2x - 5x) than hardware-accelerated system libraries.
     * Use this for accuracy and portability, not for high-performance computing (HPC).
+
+## Attribution
+
+The algorithms, polynomial coefficients and most of the code in `math.c` come from fdlibm, written at Sun Microsystems. Its copyright notices are kept at the top of `math.c` and must stay with any copy or modification of it.
+
+What this repository adds is the freestanding, architecture independent adaptation. Doubles are accessed through a `uint64_t` union instead of fdlibm's high/low word macros, and nothing beyond `<stdint.h>` is needed. `trunc` and `round` are not part of fdlibm.
 
 ## Building & Testing
 

@@ -1,5 +1,7 @@
 /*
  * math.h - Header file for math functions based on fdlibm
+ *
+ * See math.c for the fdlibm copyright notices.
  */
 
 #pragma once
